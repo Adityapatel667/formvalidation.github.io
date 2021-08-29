@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container"><br>
+        <h1 class="text-success text-center">Form Validation In JavaScript</h1><br>
+        <div class="col-lg-8 m-auto d-block">
+            <form action="#" onsubmit="return validation()" class="bg-light">
+                <div class=form-group>
+                    <label>Username:</label>
+                    <input type="text" name="user" class="form-control" id="user">
+                    <span id="username" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class=form-group>
+                    <label>Password:</label>
+                    <input type="text" name="password" class="form-control" id="password">
+                    <span id="pass" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class=form-group>
+                    <label>Confirm Password:</label>
+                    <input type="text" name="cpssword" class="form-control" id="cpassword">
+                    <span id="cpass" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class=form-group>
+                    <label>Mobile Number:</label>
+                    <input type="text" name="mobile" class="form-control" id="mobile">
+                    <span id="mobilen" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class=form-group>
+                    <label>E-mail:</label>
+                    <input type="text" name="email" class="form-control" id="email">
+                    <span id="Email" class="text-danger font-weight-bold"></span>
+                </div><br>
+                <input type="submit" name="submit" value="submit" class="btn btn-success">
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</body>
+<script type="text/javascript">
+function validation ()
+{
+    var user = document.getElementById("user").value;
+    var password = document.getElementById("password").value;
+    var cpassword = document.getElementById("cpassword").value;
+    var mobile = document.getElementById("mobile").value;
+    var email = document.getElementById("email").value;
+    if (user==""){
+        document.getElementById("username").innerHTML="*please enter your full name";
+        return false;
+    } 
+    if (user.length<2){
+        document.getElementById("username").innerHTML="* password length must be greater then 2";
+        return false;
+    } 
+    if (!isNaN(user)){
+        document.getElementById("username").innerHTML="*characters only is allowed";
+        return false;
+    } 
+    
+
+
+
+
+    if (password==""){
+        document.getElementById("pass").innerHTML="*please enter your password ";
+        return false;
+    } 
+    if ((password.length<5)||(password.length>20))
+    {
+        document.getElementById("pass").innerHTML="*password length must be greater than or equal to 5 digits ";
+        return false
+    }
+    if (cpassword=="")
+    {
+        document.getElementById("cpass").innerHTML="*please enter your full name";
+        return false;
+
+    } 
+    if (cpassword!=password)
+    {
+        document.getElementById("cpass").innerHTML="*password must be same";
+        return false;
+
+    } 
+    
+
+
+
+
+
+
+
+    if (mobile==""){
+        document.getElementById("mobilen").innerHTML="*please enter your full name";
+        return false;
+    } 
+    if (isNaN(mobile)){
+        document.getElementById("mobilen").innerHTML="*must write digits only";
+        return false;
+    } 
+    if (mobile.length !=10){
+        document.getElementById("mobilen").innerHTML="*mobile number must be 10digits only";
+        return false;
+    } 
+    if (email==""){
+        document.getElementById("Email").innerHTML="*please enter your full name";
+        return false;
+    } 
+
+}
+
+</script>
+
+</html>
